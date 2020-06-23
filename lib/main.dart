@@ -1,58 +1,35 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:datayesmoduledemo/widget/Layout.dart';
 import 'package:datayesmoduledemo/widget/Native.dart';
+import 'package:datayesmoduledemo/widget/Network.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(_widgetForRoute(window.defaultRouteName));
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '欢迎使用Flutter',
-      home: new Content(),
-      theme: new ThemeData(primaryColor: Colors.white),
-      routes: <String, WidgetBuilder>{
-        // BuildContext必须要是跳转路由的context才行
-        '/layout': (BuildContext context) => new Layout(),
-        '/native': (BuildContext context) => new Native(),
-      },
-    );
-  }
-}
-
-class Content extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // item builder
-    RaisedButton buildButtonItem(String route, String label) {
-      return new RaisedButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed(route);
-        },
-        child: new Text(label),
+Widget _widgetForRoute(String route) {
+  // 解析参数
+  switch (route) {
+    case '/':
+      return new MaterialApp(
+        title: '默认页面',
+        home: new Layout(),
       );
-    }
-
-    return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(
-        title: Text('这是标题栏'),
-      ),
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            buildButtonItem(
-              '/layout',
-              "第一个布局",
-            ),
-            buildButtonItem(
-              '/native',
-              "跳转到Native",
-            ),
-          ],
-        ),
-      ),
-    );
+    case '/native':
+      return new MaterialApp(
+        title: '原生通信',
+        home: new Native(),
+      );
+    case '/network':
+      return new MaterialApp(
+        title: '网络请求',
+        home: new Network(),
+      );
+    default:
+      return Center(
+        child: Text('没有找到路由: $route',
+            style: TextStyle(color: Colors.red),
+            textDirection: TextDirection.ltr),
+      );
   }
 }
