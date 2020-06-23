@@ -16,14 +16,14 @@ class Layout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: new Text('标题栏'),
+        title: new Text('布局DEMO'),
       ),
       body: ListView(
         children: [
           new Image.asset(
             'resources/ic_background.png',
             width: 600.0,
-            height: 240.0,
+            height: 180.0,
             fit: BoxFit.cover,
           ),
           new TitleSection(),
@@ -49,7 +49,7 @@ class TitleSection extends StatelessWidget {
                 new Container(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: new Text(
-                    'Demo 随便写的',
+                    '随便写一个标题',
                     style: new TextStyle(
                       fontWeight: FontWeight.bold,
                     ),

@@ -1,29 +1,30 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:datayesmoduledemo/widget/Layout.dart';
-import 'package:datayesmoduledemo/widget/Native.dart';
-import 'package:datayesmoduledemo/widget/Network.dart';
+import 'package:datayesmoduledemo/widget/home_page.dart';
+import 'package:datayesmoduledemo/widget/layout_page.dart';
+import 'package:datayesmoduledemo/widget/native_page.dart';
+import 'package:datayesmoduledemo/widget/network_page.dart';
 
-void main() => runApp(_widgetForRoute(window.defaultRouteName));
+void main() => runApp(widgetForRouter(window.defaultRouteName));
 
-Widget _widgetForRoute(String route) {
+Widget widgetForRouter(String route) {
   // 解析参数
   switch (route) {
     case '/':
-      return new MaterialApp(
+      return MaterialApp(
         title: '默认页面',
-        home: new Layout(),
+        home: Home(),
       );
     case '/native':
-      return new MaterialApp(
+      return MaterialApp(
         title: '原生通信',
-        home: new Native(),
+        home: Native(),
       );
     case '/network':
-      return new MaterialApp(
+      return MaterialApp(
         title: '网络请求',
-        home: new Network(),
+        home: Network(),
       );
     default:
       return Center(
