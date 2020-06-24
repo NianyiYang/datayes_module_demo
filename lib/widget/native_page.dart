@@ -21,6 +21,9 @@ class _NativeState extends State<Native> {
   void initState() {
     super.initState();
 
+    // 设置沉浸式状态栏
+
+
     // 监听 Native
     Future<dynamic> handler(MethodCall call) async {
       switch (call.method) {

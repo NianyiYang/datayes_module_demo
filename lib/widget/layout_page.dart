@@ -1,16 +1,6 @@
 // 第一个Flutter布局
 import 'package:flutter/material.dart';
 
-class Main extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'main',
-      home: new Layout(),
-    );
-  }
-}
-
 class Layout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

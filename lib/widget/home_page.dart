@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'layout_page.dart';
 import 'native_page.dart';
 import 'network_page.dart';
+import 'industry_page.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -59,6 +60,19 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Network()));
+              },
+            ),
+            RaisedButton(
+              color: Colors.blue,
+              child: Text(
+                '行业轮动',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Industry()));
               },
             ),
           ],
